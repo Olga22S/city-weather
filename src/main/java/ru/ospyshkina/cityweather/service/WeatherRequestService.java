@@ -1,9 +1,9 @@
 package ru.ospyshkina.cityweather.service;
 
-import java.time.LocalDateTime;
+import ru.ospyshkina.cityweather.model.Weather;
 
 public interface WeatherRequestService {
 
-    void saveWeatherRequest(LocalDateTime date, String param, String result);
+    void saveWeatherRequest(Weather weather);
 
 }

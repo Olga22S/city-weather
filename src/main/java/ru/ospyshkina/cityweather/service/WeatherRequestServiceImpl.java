@@ -1,6 +1,7 @@
 package ru.ospyshkina.cityweather.service;
 
 import org.springframework.stereotype.Service;
+import ru.ospyshkina.cityweather.model.Weather;
 import ru.ospyshkina.cityweather.model.WeatherRequest;
 import ru.ospyshkina.cityweather.repository.WeatherRequestRepository;
 
@@ -16,8 +17,8 @@ public class WeatherRequestServiceImpl implements WeatherRequestService {
     }
 
     @Override
-    public void saveWeatherRequest(LocalDateTime date, String param, String result) {
-        WeatherRequest weatherRequest = new WeatherRequest(date, param, result);
+    public void saveWeatherRequest(Weather weather) {
+        WeatherRequest weatherRequest = new WeatherRequest(LocalDateTime.now(), weather.getName(), weather.toString());
         repository.save(weatherRequest);
     }
 }

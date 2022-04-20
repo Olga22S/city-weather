@@ -2,6 +2,7 @@ package ru.ospyshkina.cityweather.component;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -24,6 +25,7 @@ public class WebClient {
         this.restTemplate = restTemplate;
     }
 
+    @Cacheable("weather_resquest")
     public Weather getCityWeather(String city) {
         logger.info("Trying to make a request to the server...");
         HttpHeaders httpHeaders = new HttpHeaders();
